@@ -1,16 +1,3 @@
-"""
-STEP 1 — Test that your camera and MediaPipe hand detection work.
-
-Run this FIRST, before anything else.
-This does NOT do any gesture recognition or OS control yet —
-it just proves your camera + MediaPipe pipeline is working.
-
-Usage:
-    python src/capture.py
-
-Controls:
-    Press Q to quit
-"""
 
 import cv2
 import mediapipe as mp
@@ -32,7 +19,7 @@ def main():
     print("Press Q in the window to quit.\n")
 
     with mp_hands.Hands(
-        max_num_hands=1,
+        max_num_hands=2,
         min_detection_confidence=0.7,
         min_tracking_confidence=0.7
     ) as hands:
@@ -57,7 +44,7 @@ def main():
                         frame,
                         hand_landmarks,
                         mp_hands.HAND_CONNECTIONS,
-                        mp_draw.DrawingSpec(color=(79, 142, 247), thickness=2, circle_radius=4),
+                        mp_draw.DrawingSpec(color=(79, 142, 247), thickness=2, circle_radius=3),
                         mp_draw.DrawingSpec(color=(200, 200, 200), thickness=1)
                     )
 
